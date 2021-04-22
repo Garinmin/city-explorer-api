@@ -11,6 +11,7 @@ This app allows you to display the weather in auser-selected city.
 ## Getting Started
 Install npm, express, dotenv and cors.
 ![Diagram](./Diagram_Lab07.png)
+![Diagramm-08](https://github.com/Garinmin/city-explorer-api/blob/main/Diagramm_Lab-08.png)
 
 ## Architecture
 in this app use React, Bootstrap, JavaScript, Express, Node.js
