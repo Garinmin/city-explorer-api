@@ -4,15 +4,15 @@ const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
 const app = express();
-const superagent = require('superagent');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
-const getWeatherHandler = require('./weather');
-const getMovieHandler = require('./movie');
-
+const getWeatherHandler = require('./modules/weather');
+const getMovieHandler = require('./modules/movie');
+const notFound = require('./modules/error');
 
 app.use(cors());
+
 
 app.get('/', (request, response) => {
   response.send('Home page');
@@ -20,12 +20,9 @@ app.get('/', (request, response) => {
 
 app.get('/weather', getWeatherHandler);
 
-app.get('/movies', getMovieHandler);
+app.get('/movie', getMovieHandler);
 
-
-app.get('*', (request, response) => {
-  response.status(400, 404, 500).send('error');
-});
+app.get('*', notFound);
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));

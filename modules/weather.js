@@ -1,9 +1,6 @@
 'use strict'
 
-const express = require('express');
 require('dotenv').config();
-const cors = require('cors');
-const app = express();
 const superagent = require('superagent');
 
 class Forecast {
@@ -29,8 +26,8 @@ async function getWeatherHandler(request, response) {
 
     response.send(weather);
 
-  } catch (error) {
-    response.send('Error');
+  } catch (err) {
+    response.status(err).send('error', err);
   }
 }
 
